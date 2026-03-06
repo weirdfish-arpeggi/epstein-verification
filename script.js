@@ -1,4 +1,4 @@
-  function confirm() {
+function confirm() {
     const modal = document.getElementById('modal');
     const success = document.getElementById('success');
     modal.style.animation = 'none';
@@ -6,15 +6,27 @@
     modal.style.opacity = '0';
     modal.style.transform = 'scale(0.9)';
     setTimeout(() => {
-      modal.style.display = 'none';
-      success.style.display = 'flex';
+    modal.style.display = 'none';
+    success.style.display = 'flex';
     }, 260);
-  }
+}
 
-  function deny() {
+function deny() {
     history.back();
     // Fallback if there's no history
     setTimeout(() => {
-      window.location.href = 'about:blank';
+        window.location.href = 'about:blank';
     }, 100);
-  }
+}
+
+
+const noBtn = document.querySelector('.btn-no');
+const peekImg = document.getElementById('peek-image');
+
+noBtn.addEventListener('mouseenter', () => {
+    peekImg.classList.add('peeking');
+});
+
+noBtn.addEventListener('mouseleave', () => {
+    peekImg.classList.remove('peeking');
+});
