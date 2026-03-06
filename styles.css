@@ -163,16 +163,18 @@ body {
 #peek-image {
 	position: fixed;
 	left: 0;
+	right: auto;
 	top: 50%;
-	transform: translate(-110%, -50%) rotate(90deg);
+	bottom: auto;
 	height: 80vh;
 	width: auto;
 	z-index: 1000;
-	transition: transform 0.15s ease-in;
 	pointer-events: none;
+	transform: translate(-110%, -50%) rotate(90deg);
+	transition: transform 0.15s ease-in;
 }
 
 #peek-image.peeking {
 	transform: translate(0, -50%) rotate(90deg);
-	transition: transform 5s ease-out;
+	/* transition: transform 5s ease-out; */
 }
