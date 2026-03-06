@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Confirmation</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  @import "styles.css";
+</style>
+</head>
+<body>
+
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <span>Age Confirmation</span>
+    </div>
+    <div class="modal-body">
+      <p>We need to verify your age</p>
+      <h1>Are you 18 or older?</h1>
+      <div class="btn-row">
+        <button class="btn btn-yes" onclick="confirm()">YES</button>
+        <button class="btn btn-no"  onclick="deny()">NO</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="success" id="success">
+    <div class="success-emoji">🎉</div>
+    <h2>Great!</h2>
+    <p>Have a nice day!</p>
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
