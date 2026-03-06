@@ -174,7 +174,7 @@ body {
 	transition: transform 0.15s ease-in;
 }
 
-#peek-image.peeking {
+/* #peek-image.peeking {
 	transform: translate(0, -50%) rotate(90deg);
-	/* transition: transform 5s ease-out; */
-}
+	transition: transform 5s ease-out;
+} */

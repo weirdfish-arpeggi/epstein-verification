@@ -23,13 +23,14 @@ function deny() {
 const noBtn = document.querySelector('.btn-no');
 const peekImg = document.getElementById('peek-image');
 
-let currentRotation, currentHideTranslate, currentShowTranslate, currentPosX, currentPosY, currentDimProp;
+let prePosX, prePosY;
+let currentRotation, currentHideTranslate, currentShowTranslate, currentPosX, currentPosY, dimensions;
 
 noBtn.addEventListener('mouseenter', () => {
     const sides = ['left', 'right', 'top', 'bottom'];
     const side = sides[Math.floor(Math.random() * sides.length)];
 
-    currentDimProp = 'height: 80vh; width: auto;'; // Consistent sizing for all sides
+    dimensions = 'height: 80vh; width: auto;'; // consistent sizing for all sides
 
     switch (side) {
         case 'left':
@@ -51,30 +52,30 @@ noBtn.addEventListener('mouseenter', () => {
             currentPosX = 'left: 50%; right: auto;';
             currentPosY = 'top: 0; bottom: auto;';
             currentHideTranslate = 'translate(-50%, -110%)';
-            currentShowTranslate = 'translate(-50%, 0)';
+            currentShowTranslate = 'translate(-50%, -10%)';
             break;
         case 'bottom':
             currentRotation = 0;
             currentPosX = 'left: 50%; right: auto;';
             currentPosY = 'bottom: 0; top: auto;';
             currentHideTranslate = 'translate(-50%, 110%)';
-            currentShowTranslate = 'translate(-50%, 0)';
+            currentShowTranslate = 'translate(-50%, 10%)';
             break;
     }
 
-    // Apply hidden position and rotation immediately
-    peekImg.style.cssText = `${currentPosX} ${currentPosY} ${currentDimProp} transform: ${currentHideTranslate} rotate(${currentRotation}deg);`;
+    // apply hidden position and rotation immediately
+    peekImg.style.cssText = `${currentPosX} ${currentPosY} ${dimensions} transform: ${currentHideTranslate} rotate(${currentRotation}deg); transition: none;`;
 
-    // Force reflow to apply styles before animation
+    // force reflow to apply styles before animation
     peekImg.offsetHeight;
 
-    // Switch to slow transition and animate to shown position
-    peekImg.classList.add('peeking');
+    // switch to slow transition and animate to shown position
+    peekImg.style.transition = 'transform 3s ease-out';
     peekImg.style.transform = `${currentShowTranslate} rotate(${currentRotation}deg)`;
 });
 
 noBtn.addEventListener('mouseleave', () => {
-    // Switch to fast transition and animate back to hidden
-    peekImg.classList.remove('peeking');
+    // switch to fast transition and animate back to hidden
+    peekImg.style.transition = 'transform 0.15s ease-in';
     peekImg.style.transform = `${currentHideTranslate} rotate(${currentRotation}deg)`;
 });
